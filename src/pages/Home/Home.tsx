@@ -1,8 +1,7 @@
 import React from 'react';
-import { RoutesProps } from 'react-router-dom';
 
-const Home = (props: RoutesProps) => { 
-    return <></>;
+const Home = () => {
+    return <div>Home Page</div>
 };
 
 export default Home;

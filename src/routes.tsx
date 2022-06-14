@@ -4,12 +4,12 @@ import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 /** Pages */
 import Home from './pages/Home';
 
-const Routes = () => {
+const AppRoutes = () => {
     return (
         <Router>
             <div className="App">
@@ -58,12 +58,12 @@ const Routes = () => {
                         </a>
                     </span>
                 </header>
-                <Route path={'/home'}>
-                    <Home />
-                </Route>
+                <Routes>
+                    <Route path={'/'} element={<Home />} />
+                </Routes>
             </div>
         </Router>
     )
 };
 
-export default Routes;
+export default AppRoutes;
