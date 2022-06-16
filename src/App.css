@@ -14,9 +14,9 @@
 }
 
 .App-header {
-  min-height: 100vh;
+  height: 96px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -24,6 +24,19 @@
 
 .App-link {
   color: rgb(112, 76, 182);
+}
+
+.PageContainer {
+  padding: 16px;
+}
+
+.NavMenu {
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+}
+.NavMenu:hover {
+  color: #764abc;
 }
 
 @keyframes App-logo-float {
