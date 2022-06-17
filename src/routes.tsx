@@ -8,6 +8,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 /** Pages */
 import Home from './pages/Home';
 import Header from './components/Header/Header';
+import MoviesList from './pages/MoviesList';
 
 const AppRoutes = () => {
     return (
@@ -18,6 +19,9 @@ const AppRoutes = () => {
                 </header>
                 <Routes>
                     <Route path={'/'} element={<Home />} />
+                    <Route path={'/movies'} element={<MoviesList />} />
+                    <Route path={'/series'} element={<></>} />
+                    <Route path={'/about'} element={<></>} />
                 </Routes>
             </div>
         </Router>

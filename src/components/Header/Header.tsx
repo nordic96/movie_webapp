@@ -13,7 +13,7 @@ const Header = () => {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
-            backgroundColor: '#212121',
+            backgroundColor: '#3f3c3d',
         }}>
             <Box display={'flex'} flexDirection={'row'} alignItems={'center'}>
                 <img src={logo} style={{ width: 56, height: 56 }} className="App-logo" alt="logo" />
