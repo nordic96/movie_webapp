@@ -7,6 +7,7 @@ import ShowBox from '../../components/ShowBox';
 import { useAppSelector, useAppThunkDispatch } from '../../app/hooks';
 import { fetchMovies } from '../../features/movies/movieReducer';
 import { Movie, ProgramType } from '../../services/movies/types';
+import ShowModal from '../../components/ShowModal';
 
 const MoviesList = () => {
     const OFFSET = 20;
@@ -43,6 +44,7 @@ const MoviesList = () => {
                 })}
             </Box>
             {page < maxPage && <Button onClick={onClickMore}>Show More</Button>}
+            <ShowModal />
         </Box>
     );
 };
