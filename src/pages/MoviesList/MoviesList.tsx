@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 
-import movieService from '../../services/movies/index';
+import { useAppThunkDispatch } from '../../app/hooks';
+import { fetchMovies } from '../../features/movies/movieReducer';
 
 const MoviesList = () => {
+    const thunkDispatch = useAppThunkDispatch();
+
     useEffect(() => {
-        movieService.fetchMovies().then((res) => {
-            console.log(res);
-        });
-    }, []);
+        thunkDispatch(fetchMovies());
+    }, [thunkDispatch]);
+
     return <></>;
 };
 
