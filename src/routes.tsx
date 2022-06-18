@@ -8,7 +8,8 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 /** Pages */
 import Home from './pages/Home';
 import Header from './components/Header/Header';
-import MoviesList from './pages/MoviesList';
+import ProgramList from './pages/ProgramList';
+import { ProgramType } from './services/movies/types';
 
 const AppRoutes = () => {
     return (
@@ -19,10 +20,13 @@ const AppRoutes = () => {
                 </header>
                 <Routes>
                     <Route path={'/'} element={<Home />} />
-                    <Route path={'/movies'} element={<MoviesList />} />
-                    <Route path={'/series'} element={<></>} />
+                    <Route path={'/movies'} element={<ProgramList programType={ProgramType.Movies}/>} />
+                    <Route path={'/series'} element={<ProgramList programType={ProgramType.Series}/>} />
                     <Route path={'/about'} element={<></>} />
                 </Routes>
+                <footer>
+                    Hello from footer
+                </footer>
             </div>
         </Router>
     )
