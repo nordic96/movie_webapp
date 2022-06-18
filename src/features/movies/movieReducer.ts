@@ -35,7 +35,10 @@ const reducer: Reducer<MovieState, any> = (state = initialState, action: MovieAc
         case MovieActions.SET_MOVIES:
             return { ...state, movies: action.data };
         case MovieActions.SET_SELECTED_MOVIE:
-            const newMovie: Movie = JSON.parse(JSON.stringify(action.data as Movie));
+            let newMovie = undefined;
+            if (action.data !== undefined) {
+                newMovie = JSON.parse(JSON.stringify(action.data as Movie));
+            }
             return { ...state, selectedMovie: newMovie };
         case MovieActions.SET_LOADING:
             return { ...state, loading: action.data };

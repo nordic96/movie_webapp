@@ -25,3 +25,10 @@ export interface MoviesResponse {
     total: number;
     entries: Movie[];
 }
+
+export interface YearFact {
+    found: boolean;
+    number: number;
+    text: string;
+    type: string;
+}
