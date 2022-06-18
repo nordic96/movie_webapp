@@ -1,29 +1,35 @@
 import React, { useEffect, useState } from 'react';
+
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 import { Box, Modal, Typography } from '@mui/material';
+
+import { ShowModalStyles } from './styles';
+
+import movieService from '../../services/movies/index';
+
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { MovieActions } from '../../features/movies/movieReducer';
-
-const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '67vh',
-    bgcolor: '#333',
-    boxShadow: 24,
-    color: '#fff',
-    p: 4,
-    borderRadius: 2,
-};
+import { YearFact } from '../../services/movies/types';
+import { YearFactLoadErrMsg } from './constants';
 
 const ShowModal = () => {
     const dispatch = useAppDispatch();
     const state = useAppSelector((s) => s.page_movies);
     const { selectedMovie } = state;
     const [open, setOpen] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [yearFact, setYearFact] = useState<YearFact>();
 
     useEffect(() => {
         setOpen(selectedMovie !== undefined);
+        if (selectedMovie === undefined) return;
+
+        setLoading(true);
+        movieService.fetchInterestingFacts(selectedMovie.releaseYear).then((res) => {
+            if (res !== undefined) setYearFact(res);
+            setLoading(false);
+        }).catch((err) => setLoading(false));
     }, [selectedMovie]);
 
     const onClose = () => {
@@ -36,16 +42,26 @@ const ShowModal = () => {
         <Modal
             open={open}
             onClose={onClose}
-            sx={{ }}
+            sx={{}}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={style}>
-                <img alt={'movie poster'} src={selectedMovie.images['Poster Art'].url} width={'100%'} height={450} style={{ objectFit: 'cover' }}/>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
+            <Box sx={ShowModalStyles}>
+                <img alt={'movie poster'} src={selectedMovie.images['Poster Art'].url} width={'100%'} height={450} style={{ objectFit: 'cover' }} />
+                <Typography id="modal-modal-title" variant="h5" component="h2" fontWeight={'bold'} paddingTop={2}>
                     {`${selectedMovie.title} (${selectedMovie.releaseYear})`}
                 </Typography>
-                {selectedMovie.description}
+                <Typography id="modal-modal-description" paddingTop={1}>
+                    {selectedMovie.description}
+                </Typography>
+                <Box paddingTop={2}>
+                    {loading ?
+                        <Skeleton baseColor='#464646'/>
+                    :   <Typography fontStyle={'italic'} fontSize={14}>
+                            {yearFact ? `* ${yearFact?.text}` : YearFactLoadErrMsg}
+                        </Typography>
+                    }
+                </Box>
             </Box>
         </Modal>
     );

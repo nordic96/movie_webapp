@@ -1,17 +1,17 @@
 import React from 'react';
-import { Box, SxProps, Typography } from '@mui/material';
-import { Movie } from '../../services/movies/types';
-import { ProgramTypeColor } from './constants';
+
+import { Box, Typography } from '@mui/material';
+import { BoxStyles } from './styles';
+
 import { useAppDispatch } from '../../app/hooks';
 import { MovieActions } from '../../features/movies/movieReducer';
+import { Movie } from '../../services/movies/types';
+
+import { BOX_WIDTH, ProgramTypeColor } from './constants';
 
 export interface ShowBoxProps {
     data: Movie;
 }
-
-const style: SxProps = {
-    cursor: 'pointer',
-};
 
 const ShowBox = (props: ShowBoxProps) => {
     const { data } = props;
@@ -25,14 +25,11 @@ const ShowBox = (props: ShowBoxProps) => {
 
     return (
         <Box
-            sx={style}
-            width={304}
+            sx={BoxStyles}
             borderRadius={1}
-            overflow={'hidden'}
             onClick={onClickShow}
-            boxShadow={'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px'}
         >
-            <img src={images["Poster Art"].url} width={304} alt={'Movie Poster'} />
+            <img src={images["Poster Art"].url} width={BOX_WIDTH} alt={'Movie Poster'} />
             <div style={{ display: 'flex', gap: 8, padding: '8px 16px' }}>
                 <Typography color={'#333'} fontWeight={'bold'} fontSize={18}>{title}</Typography>
                 <Typography color={'#333'} fontSize={'18px'}>{`(${releaseYear})`}</Typography>
