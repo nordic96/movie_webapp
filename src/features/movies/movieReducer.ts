@@ -57,7 +57,12 @@ export const fetchMovies = (): AppThunk => async (dispatch: AppThunkDispatch) =>
     };
     dispatch({ type: MovieActions.SET_LOADING, data: true });
     setTimeout(() => {
-        moviesService.fetchMovies().then(handleFetchMovies);
+        moviesService.fetchMovies()
+            .then(handleFetchMovies)
+            .catch((err) => {
+                console.error(err);
+                dispatch({ type: MovieActions.SET_LOADING, data: false });
+            });
     }, 1000);
 };
 

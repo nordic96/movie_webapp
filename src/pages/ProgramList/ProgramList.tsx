@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
 /** Components */
-import { Box, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import ShowBox from '../../components/ShowBox';
 import ShowModal from '../../components/ShowModal';
 import ShowLoading from '../../components/ShowBox/ShowLoading';
+import wrapWithPageStyles from '../../components/wrapWithPageStyles';
 
 import { useAppSelector, useAppThunkDispatch } from '../../app/hooks';
 import { fetchMovies } from '../../features/movies/movieReducer';
 import { Movie, ProgramType } from '../../services/movies/types';
 
 import { btnStyle } from './styles';
-import wrapWithPageStyles from '../../components/wrapWithPageStyles';
+import EmptyContent from '../../components/EmptyContent';
 
 export interface ProgramListProps {
     programType: ProgramType;
@@ -53,9 +54,11 @@ const ProgramList = (props: ProgramListProps) => {
     return (
         <Box display={'flex'} padding={'24px 16px'} flexDirection={'column'} justifyContent={'center'} gap={2}>
             <Box gap={2} flexWrap={'wrap'} width={'100%'} display={'flex'} justifyContent={'center'}>
-                {!state.loading ? filteredMovies.slice(0, page * OFFSET).map((x, i) => {
+                {!state.loading && filteredMovies.length > 0 ? filteredMovies.slice(0, page * OFFSET).map((x, i) => {
                     return <ShowBox data={x} key={i} />;
-                }) : new Array(10).fill(1).map((x, i) => {
+                }) : !state.loading && filteredMovies.length <= 0 ?
+                    <EmptyContent />
+                   : new Array(10).fill(1).map((x, i) => {
                     return <ShowLoading key={i} />;
                 })}
             </Box>
