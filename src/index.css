@@ -12,11 +12,6 @@ code {
     monospace;
 }
 
-#root {
-  margin-bottom: 80px;
-  padding: 24px 16px;
-}
-
 footer {
   position: fixed;
   display: flex;
