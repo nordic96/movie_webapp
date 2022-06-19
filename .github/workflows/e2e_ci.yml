@@ -8,15 +8,39 @@ on:
   workflow_dispatch:
 
 jobs:
-  checkout-and-test:
+  install:
     runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
-      - run: echo "Running E2E Tests using Cypress"
       - name: Checkout repository code
         uses: actions/checkout@v2
 
-      - name: Run Cypress Tests with firefox
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+      - name: Cypress Install
         uses: cypress-io/github-action@v4
-        timeout-minutes: 5
+        with:
+          runTests: false
+          build: npm run build
+
+  checkout-and-test:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v2
+
+      - name: Download build directory
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+      - name: Cypress Run
+        uses: cypress-io/github-action@v4
         with:
           browser: firefox
+          build: npm run build
