@@ -5,7 +5,7 @@ describe('Explore Movies Page', () => {
         cy.get('.App').should('be.visible');
         cy.get('.App-header').should('be.visible');
     
-        cy.get('.NavMenu').should('have.length', 4);        
+        cy.get('.NavMenu').should('have.length', 3);        
         cy.wait(1000);
     })
     it('Should display all components', () => {
