@@ -11,7 +11,7 @@ describe('Explore Series Page', () => {
         });
     };
     before(() => {
-        cy.visit('http://localhost:3000');
+        cy.visit('http://localhost:3000', { headers: { "Accept-Encoding": "gzip, deflate" }});
         cy.get('#nav-series').click();
         cy.wait(1000);
     })
