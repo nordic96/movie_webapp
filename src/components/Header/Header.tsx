@@ -17,12 +17,12 @@ const Header = () => {
         }}>
             <Box display={'flex'} flexDirection={'row'} alignItems={'center'}>
                 <img src={logo} style={{ width: 56, height: 56 }} className="App-logo" alt="logo" />
-                <NavLink style={{ fontSize: 28, fontWeight: 'bold' }} className={'NavMenu'} to={'/'}>{'Cine Movies'}</NavLink>
+                <NavLink style={{ fontSize: 28, fontWeight: 'bold' }} id={'nav-home'} className={'NavMenu'} to={'/'}>{'Cine Movies'}</NavLink>
             </Box>
             <Box display={'flex'} flexDirection={'row'} gap={2}>
-                <NavLink className={'NavMenu'} to={'/movies'}>Latest Movies</NavLink>
-                <NavLink className={'NavMenu'} to={'/series'}>Latest Series (TV)</NavLink>
-                <NavLink className={'NavMenu'} to={'/about'}>About</NavLink>
+                <NavLink id={'nav-movies'} className={'NavMenu'} to={'/movies'}>Latest Movies</NavLink>
+                <NavLink id={'nav-series'} className={'NavMenu'} to={'/series'}>Latest Series (TV)</NavLink>
+                {/* <NavLink id={'nav-about'} className={'NavMenu'} to={'/about'}>About</NavLink> */}
             </Box>
         </AppBar>
     );

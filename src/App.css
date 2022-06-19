@@ -27,7 +27,10 @@
 }
 
 .PageContainer {
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  gap: 16px;
 }
 
 .NavMenu {
@@ -37,6 +40,16 @@
 }
 .NavMenu:hover {
   color: #764abc;
+}
+
+.TrailerImg {
+  background-color: #fff;
+  height: 100%;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.TrailerImg:hover {
+  opacity: 0;
 }
 
 @keyframes App-logo-float {

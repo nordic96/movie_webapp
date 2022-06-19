@@ -1,6 +1,16 @@
 export enum ProgramType {
     Series = 'series',
-    Movies = 'movies',
+    Movies = 'movie',
+}
+
+export interface PosterArt {
+    url: string;
+    width: number;
+    height: number;
+}
+
+export interface MovieImage {
+    "Poster Art": PosterArt;
 }
 
 export interface Movie {
@@ -8,9 +18,17 @@ export interface Movie {
     description: string;
     programType: ProgramType;
     releaseYear: number;
+    images: MovieImage;
 }
 
 export interface MoviesResponse {
     total: number;
     entries: Movie[];
+}
+
+export interface YearFact {
+    found: boolean;
+    number: number;
+    text: string;
+    type: string;
 }
