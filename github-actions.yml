@@ -1,0 +1,22 @@
+name: Run Cypress Tests (E2E)
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+  workflow_dispatch:
+
+jobs:
+  checkout-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running E2E Tests using Cypress"
+      - name: Checkout repository code
+        uses: actions/checkout@v2
+
+      - name: Run Cypress Tests with firefox
+        uses: cypress-io/github-action@v2
+        timeout-minutes: 5
+        with:
+          browser: firefox
