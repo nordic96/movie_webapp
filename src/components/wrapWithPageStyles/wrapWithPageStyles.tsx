@@ -17,7 +17,7 @@ const pageStyle: SxProps = {
 export function wrapWithPageStyles<P>(PageNode: React.ComponentType<P>) {
     return (props: P): ReactJSXElement => {
         return (
-            <Box sx={pageStyle}>
+            <Box id={'pagebody'} sx={pageStyle}>
                 <PageNode {...props} />
             </Box>
         );

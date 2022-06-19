@@ -77,7 +77,7 @@ const ProgramList = (props: ProgramListProps) => {
                     return <ShowLoading key={i} />;
                 })}
             </Box>
-            {(page < maxPage && !state.loading) && <Button sx={btnStyle} onClick={onClickMore}>Show More</Button>}
+            {(page < maxPage && !state.loading) && <Button id={'btn-showmore'} sx={btnStyle} onClick={onClickMore}>Show More</Button>}
             <ShowModal />
         </Box>
     );

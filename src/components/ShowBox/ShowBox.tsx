@@ -30,6 +30,7 @@ const ShowBox = (props: ShowBoxProps) => {
 
     return (
         <Box
+            id={`showbox-${data.title}`}
             sx={BoxStyles}
             borderRadius={1}
             onClick={onClickShow}
@@ -45,7 +46,20 @@ const ShowBox = (props: ShowBoxProps) => {
             <div style={{ display: 'flex', gap: 8, padding: '8px 16px' }}>
                 <Typography color={'#333'} fontWeight={'bold'} fontSize={18}>{title}</Typography>
                 <Typography color={'#333'} fontSize={'18px'}>{`(${releaseYear})`}</Typography>
-                <Typography sx={{ fontSize: 16, height: 24, padding: '2px 4px', borderRadius: 1, display: 'flex', alignItems: 'center', backgroundColor: ProgramTypeColor[programType], color: '#fff' }}>{programType}</Typography>
+                <Typography
+                    sx={{
+                        fontSize: 16,
+                        height: 24,
+                        padding: '2px 4px',
+                        borderRadius: 1,
+                        display: 'flex',
+                        alignItems: 'center',
+                        backgroundColor: ProgramTypeColor[programType],
+                        color: '#fff'
+                    }}
+                >
+                    {programType}
+                </Typography>
             </div>
         </Box>
     );

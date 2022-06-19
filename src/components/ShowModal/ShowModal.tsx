@@ -57,7 +57,7 @@ const ShowModal = () => {
                 <Box paddingTop={2}>
                     {loading ?
                         <Skeleton baseColor='#464646'/>
-                    :   <Typography fontStyle={'italic'} fontSize={14}>
+                    :   <Typography fontStyle={'italic'} fontSize={14} id={`interesting-fact-${selectedMovie.releaseYear}`}>
                             {yearFact ? `* ${yearFact?.text}` : YearFactLoadErrMsg}
                         </Typography>
                     }
