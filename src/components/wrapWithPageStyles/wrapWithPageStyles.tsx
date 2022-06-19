@@ -8,6 +8,7 @@ const pageStyle: SxProps = {
     bottom: 52,
     width: '100%',
     overflowY: 'auto',
+    backgroundColor: '#fafafa',
 };
 
 /**

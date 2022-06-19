@@ -47,7 +47,7 @@ const Home = () => {
         <div className={'PageContainer'}>
             <Box display={'flex'} justifyContent={'center'} flexDirection={'column'} gap={0.5}>
                 <Typography variant={'h5'} fontWeight={'bold'} color={'#333'}>Welcome to Cine Movies</Typography>
-                <Typography color={'#333'}>{`Total ${total.toLocaleString()} programs to be discovered by you!`}</Typography>
+                <Typography color={'#333'}>{`Total ${total.toLocaleString()} programs and films waiting to be discovered by you!`}</Typography>
             </Box>
             <Box display={'flex'} flexWrap={'wrap'} gap={1} justifyContent={'center'}>
                 {!loading && entries.length > 0 ?
