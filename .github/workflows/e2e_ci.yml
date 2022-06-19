@@ -17,7 +17,6 @@ jobs:
 
       - name: npm install & run
         run: |
-          npm i -g serve
           npm install
           npm run build --if-present
 
@@ -51,6 +50,8 @@ jobs:
         with:
           name: build
           path: build
+      - name: Npm i serve
+        run: npm i -g serve
 
       - name: Cypress Run
         uses: cypress-io/github-action@v4
