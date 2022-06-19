@@ -15,12 +15,18 @@ jobs:
       - name: Checkout repository code
         uses: actions/checkout@v2
 
+      - name: npm install & run
+        run: |
+          npm install
+          npm run build --if-present
+
       - name: Save build folder
         uses: actions/upload-artifact@v2
         with:
           name: build
           if-no-files-found: error
           path: build
+
       - name: Cypress Install
         uses: cypress-io/github-action@v4
         with:
