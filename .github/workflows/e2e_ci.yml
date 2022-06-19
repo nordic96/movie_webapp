@@ -63,4 +63,3 @@ jobs:
           parallel: true
           group: 'UI - Chrome'
           spec: cypress/e2e/*
-          build: npm run build
