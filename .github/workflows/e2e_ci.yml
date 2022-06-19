@@ -36,6 +36,11 @@ jobs:
   checkout-and-test:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
+    needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v2
@@ -45,8 +50,16 @@ jobs:
         with:
           name: build
           path: build
+
       - name: Cypress Run
         uses: cypress-io/github-action@v4
         with:
-          browser: firefox
+          install: false
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          wait-on-tiomeout: 120
+          browser: chrome
+          parallel: true
+          group: 'UI - Chrome'
+          spec: cypress/e2e/*
           build: npm run build
