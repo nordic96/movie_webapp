@@ -19,7 +19,6 @@ jobs:
         with:
           build: npm run build
           start: npm start
-          parallel: true
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           record: false
