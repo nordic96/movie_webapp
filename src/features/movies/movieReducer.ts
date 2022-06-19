@@ -50,7 +50,6 @@ const reducer: Reducer<MovieState, any> = (state = initialState, action: MovieAc
 export const fetchMovies = (): AppThunk => async (dispatch: AppThunkDispatch) => {
     const handleFetchMovies = (res: MoviesResponse) => {
         if (res !== undefined) {
-            console.log(res);
             dispatch({ type: MovieActions.SET_MOVIES, data: { ...res } });
         }
         dispatch({ type: MovieActions.SET_LOADING, data: false });

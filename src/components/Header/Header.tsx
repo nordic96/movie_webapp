@@ -22,7 +22,7 @@ const Header = () => {
             <Box display={'flex'} flexDirection={'row'} gap={2}>
                 <NavLink id={'nav-movies'} className={'NavMenu'} to={'/movies'}>Latest Movies</NavLink>
                 <NavLink id={'nav-series'} className={'NavMenu'} to={'/series'}>Latest Series (TV)</NavLink>
-                <NavLink id={'nav-about'} className={'NavMenu'} to={'/about'}>About</NavLink>
+                {/* <NavLink id={'nav-about'} className={'NavMenu'} to={'/about'}>About</NavLink> */}
             </Box>
         </AppBar>
     );

@@ -5,4 +5,4 @@ export const ProgramTypeColor: Record<ProgramType, string> = {
     [ProgramType.Series]: '#3db182',
 }
 
-export const BOX_WIDTH = 304;
+export const BOX_WIDTH = 290;

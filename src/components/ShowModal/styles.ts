@@ -5,7 +5,7 @@ export const ShowModalStyles: SxProps = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '67vh',
+    width: '67vw',
     bgcolor: '#333',
     boxShadow: 24,
     color: '#fff',
