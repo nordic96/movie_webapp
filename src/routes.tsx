@@ -25,7 +25,7 @@ const AppRoutes = () => {
                     <Route path={'/about'} element={<></>} />
                 </Routes>
                 <footer>
-                    Hello from footer
+                    This website is built using ReactJS, Typescript, Redux, Material UI
                 </footer>
             </div>
         </Router>
