@@ -65,10 +65,10 @@ const ProgramList = (props: ProgramListProps) => {
     return (
         <Box display={'flex'} padding={'24px 16px'} flexDirection={'column'} justifyContent={'center'} gap={2}>
             <Box display={'flex'} gap={2} justifyContent={'center'} textTransform={'unset'}>
-                <Button sx={{ backgroundColor: 'green', color: 'white', '&:hover': { backgroundColor: 'darkgreen' } }} onClick={onClickSort(true)}>Latest</Button>
-                <Button sx={{ backgroundColor: 'red', color: 'white', '&:hover': { backgroundColor: 'darkred' }}} onClick={onClickSort(false)}>Oldest</Button>
+                <Button id={'btn-sort-latest'} sx={{ backgroundColor: 'green', color: 'white', '&:hover': { backgroundColor: 'darkgreen' } }} onClick={onClickSort(true)}>Latest</Button>
+                <Button id={'btn-sort-oldest'} sx={{ backgroundColor: 'red', color: 'white', '&:hover': { backgroundColor: 'darkred' }}} onClick={onClickSort(false)}>Oldest</Button>
             </Box>
-            <Box gap={2} flexWrap={'wrap'} width={'100%'} display={'flex'} justifyContent={'center'}>
+            <Box id={'program-container'} gap={2} flexWrap={'wrap'} width={'100%'} display={'flex'} justifyContent={'center'}>
                 {!state.loading && filteredMovies.length > 0 ? filteredMovies.slice(0, page * OFFSET).map((x, i) => {
                     return <ShowBox data={x} key={i} />;
                 }) : !state.loading && filteredMovies.length <= 0 ?
