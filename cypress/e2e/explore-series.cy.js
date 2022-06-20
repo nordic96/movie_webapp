@@ -14,7 +14,13 @@ describe('Explore Series Page', () => {
         cy.visit('http://localhost:3000', { headers: { "Accept-Encoding": "gzip, deflate" }});
         cy.get('#nav-series').click();
         cy.wait(1000);
-    })
+    });
+
+    it ('Should display selected style on movies menu btn', () => {
+        cy.get('#nav-movies').should('not.have.class', 'NavMenuSelected');
+        cy.get('#nav-series').should('have.class', 'NavMenuSelected');
+    });
+
     it ('Should open the website and go to series list page', () => {
         clickShowMore();
         cy.get('#pagebody').scrollTo('bottom');

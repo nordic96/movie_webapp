@@ -14,7 +14,13 @@ describe('Explore Movies Page', () => {
         cy.visit('http://localhost:3000', { headers: { "Accept-Encoding": "gzip, deflate" }});
         cy.get('#nav-movies').click();
         cy.wait(1000);
-    })
+    });
+
+    it ('Should display selected style on movies menu btn', () => {
+        cy.get('#nav-movies').should('have.class', 'NavMenuSelected');
+        cy.get('#nav-series').should('not.have.class', 'NavMenuSelected');
+    });
+
     it ('Open the website and go to movies page', () => {
         clickShowMore();
         cy.get('#pagebody').scrollTo('bottom');

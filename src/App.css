@@ -38,8 +38,18 @@
   text-decoration: none;
   color: white;
 }
+
+.NavMenuSelected {
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  background-color: #127458;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
 .NavMenu:hover {
-  color: #764abc;
+  color: #127458;
 }
 
 .TrailerImg {
