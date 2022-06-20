@@ -26,5 +26,16 @@ describe('Explore Series Page', () => {
         cy.get(`#modal-modal-title`).should('be.visible');
         cy.get(`#modal-modal-description`).should('be.visible');
         cy.get(`#interesting-fact-2015`).should('be.visible');
+
+        cy.get('body').click(0,0);
+    });
+
+    it ('Should sort series by latest and oldest', () => {
+        cy.get('#btn-sort-oldest').click();
+        cy.wait(500);
+        cy.get('#program-container').first().contains('Billy');
+        cy.wait(500);
+        cy.get('#btn-sort-latest').click();
+        cy.get('#program-container').first().contains('Wolf');
     });
 });
